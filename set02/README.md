@@ -152,7 +152,8 @@ borga(5) = 2.699337
 int input_n();
 void input(int n, int a[n]);
 float odd_average(int n, int a[n]);
-void output(float avg);
+void output(
+float avg);
 ```
 
 ***Input***

@@ -25,14 +25,13 @@ void output(int n, int a[n], int sum)
   //for(int i=0;i<=n;i++)
 // {printf("%d",a[i]);}
   }
-
 int main()
 {int c;
-int a[c];
-int sum;
-c = input_array_size();
-input_array(c,a);
-sum = sum_n_array(c,a);
-output(c,a,sum);
-return 0;
-}
+  int a[c];
+  int sum;
+  c = input_array_size();
+  input_array(c,a);
+  sum = sum_n_array(c,a);
+  output(c,a,sum);
+  return 0;
+  }
