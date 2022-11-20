@@ -61,4 +61,3 @@ int main()
 	output(n,&c[n],sum);
 	return 0;
 }
-
