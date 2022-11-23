@@ -1,21 +1,57 @@
 #include<stdio.h>
+
+int input_n();
+void input(int n, int a[n]);
+float odd_average(int n, int a[n]);
+void output(float avg);
+
 int main()
 {
-    printf("Enter the size of the array:");
-    int size;
-    scanf("%d",&size);
-    int arr[size],j=0,sum=0,cout=0;
-    double avg;
+  int n;
+  float avg=0;
+  n=input_n();
+  int a[n];
+  input(n,a);
+  avg=odd_average(n,a);
+  output(avg);
+}
 
-    printf("Enter the Element of the array:\n");
-     for(j=1;j<=size;j++)
+int input_n()
+{
+  int n;
+  printf("Enter the size of the array\n");
+  scanf("%d",&n);
+  return n;
+}
+
+void input(int n, int a[n])
+{
+  int i=0;
+  for(i=0;i<n;i++)
     {
-        scanf("%d",&arr[j]);
-        if(j%2!=0){
-            sum+=arr[j];
-            cout++;
-        }
+      printf("Enter the array element\n");
+      scanf("%d",&a[i]);
     }
-    avg=(double)(sum/cout);
-    printf("Average of Numbers in array at odd position is %lf",avg);
+}
+
+float odd_average(int n, int a[n])
+{
+  float sum=0, avg=0;
+  int count=0, i=0;
+  for(i=0; i<n; i++)
+    {
+      if((a[i]%2)!=0)
+      {
+        sum=sum=a[i];
+        count++;
+      }
     }
+  avg=(sum)/count;
+  return avg;
+}
+
+void output(float avg)
+{
+  printf("The average of array elements is %f\n",avg);
+  return 0;
+}
