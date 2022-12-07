@@ -1,28 +1,57 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int input(){
-    int n;
-    scanf("%d",&n);
-    return n;
+int input();
+int find_gcd(int a, int b);
+void output(int a, int b, int gcd);
+
+int main()
+{
+   int a,b,gcd=0;
+   a=input();
+   b=input();
+   gcd=find_gcd(a,b);
+   output(a,b,gcd);
+   return 0;
 }
-int find_gcd(int a, int b){
-    int gcd=1;
-    for(int i=1; i <= a && i <= b; ++i)
-    {
-        // Checks if i is factor of both integers
-        if(a%i==0 && b%i==0)
-            gcd = i;
-    }
-    return gcd;
-}
-void output(int a, int b, int gcd){
-    printf("%d",gcd);
+int input()
+{
+  int n;
+  printf("Enter the number\n");
+  scanf("%d", &n);
+  return n;
 }
 
-int main(){
-    int a=input();
-    int b=input();
-    int gcd=find_gcd(a,b);
-    output(a,b,gcd);
-    return 0;
+int find_gcd(int a, int b)
+{
+  int divdn, div, rem=-1, gcd;
+  if(a>b)
+  {
+    divdn=a;
+    div=b;
+  }
+
+  else
+  {
+      divdn=b;
+      div=a;
+  }
+  rem=(divdn)%(div);
+  if(rem==0)
+    gcd=div;
+  else
+  {
+        while(rem!=0)
+          {
+             divdn=div;
+             div=rem;
+            rem=(divdn)%(div);
+          }
+     gcd=div;
+  }
+  return div;
+}
+
+void output(int a, int b, int gcd)
+{
+  printf("The gdc of %d and %d is %d", a,b,gcd);
 }
